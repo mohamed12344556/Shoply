@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:stylish_app/modules/home/product_cubit/product_cubit.dart';
-import 'package:stylish_app/modules/home/ui/widgets/build_sorting_bar.dart';
-import 'package:stylish_app/modules/home/ui/widgets/custom_app_bar.dart';
-import 'package:stylish_app/modules/home/ui/widgets/custom_search_bar.dart';
-import 'package:stylish_app/modules/trendeing_page/ui/widgets/BuildProductList.dart';
+import '../../../home/product_cubit/product_cubit.dart';
+import '../../../home/ui/widgets/build_sorting_bar.dart';
+import '../../../home/ui/widgets/custom_app_bar.dart';
+import '../../../home/ui/widgets/custom_search_bar.dart';
+import '../widgets/BuildProductList.dart';
 
 class TrendingProductPage extends StatefulWidget {
   const TrendingProductPage({super.key});

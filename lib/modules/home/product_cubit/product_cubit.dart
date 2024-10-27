@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:stylish_app/modules/home/data/models/product_model.dart';
-import 'package:stylish_app/modules/home/data/services/get_all_product_service.dart';
+import '../data/models/product_model.dart';
+import '../data/services/get_all_product_service.dart';
 
 part 'product_state.dart';
 

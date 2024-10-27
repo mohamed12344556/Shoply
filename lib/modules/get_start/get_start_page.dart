@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:stylish_app/core/themes/font_weight_helper.dart';
-import 'package:stylish_app/modules/home/ui/widgets/custom_bottom_nav_bar.dart';
+import '../../core/themes/font_weight_helper.dart';
+import '../home/ui/widgets/custom_bottom_nav_bar.dart';
 
 class GetStartPage extends StatelessWidget {
   const GetStartPage({super.key});

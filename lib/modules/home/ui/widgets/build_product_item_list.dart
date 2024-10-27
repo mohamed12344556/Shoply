@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:stylish_app/modules/home/data/models/product_model.dart';
-import 'package:stylish_app/modules/home/ui/widgets/rate_widget.dart';
+import '../../data/models/product_model.dart';
+import 'rate_widget.dart';
 import '../../../../core/themes/font_weight_helper.dart';
 
 class BuildProductItemList extends StatelessWidget {

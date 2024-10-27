@@ -1,7 +1,7 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:stylish_app/modules/home/product_cubit/product_cubit.dart';
+import '../../product_cubit/product_cubit.dart';
 import '../widgets/build_deal_of_the_day.dart';
 import '../widgets/build_product_categories.dart';
 import '../widgets/build_product_list.dart';

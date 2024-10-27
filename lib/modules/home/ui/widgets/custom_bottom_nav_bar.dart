@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:stylish_app/core/themes/font_weight_helper.dart';
-import 'package:stylish_app/modules/home/product_cubit/product_cubit.dart';
-import 'package:stylish_app/modules/home/ui/pages/home_page.dart';
-import 'package:stylish_app/modules/shop/ui/pages/shoping_page.dart';
-import 'package:stylish_app/modules/trendeing_page/ui/pages/trendeing_product_page.dart';
+import '../../../../core/themes/font_weight_helper.dart';
+import '../../product_cubit/product_cubit.dart';
+import '../pages/home_page.dart';
+import '../../../shop/ui/pages/shoping_page.dart';
+import '../../../trendeing_page/ui/pages/trendeing_product_page.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   const CustomBottomNavBar({super.key});

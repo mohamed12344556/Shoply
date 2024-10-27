@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:stylish_app/core/themes/font_weight_helper.dart';
+import '../../../../core/themes/font_weight_helper.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({

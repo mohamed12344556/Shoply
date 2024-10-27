@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:stylish_app/modules/home/data/models/product_model.dart';
+import '../models/product_model.dart';
 
 class GetAllProductService {
   Dio dio = Dio(

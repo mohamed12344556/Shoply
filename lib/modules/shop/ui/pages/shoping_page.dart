@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:stylish_app/core/themes/font_weight_helper.dart';
-import 'package:stylish_app/modules/home/product_cubit/product_cubit.dart';
-import 'package:stylish_app/modules/home/ui/widgets/build_product_list.dart';
-import 'package:stylish_app/modules/home/ui/widgets/custom_page_view.dart';
-import 'package:stylish_app/modules/shop/ui/widgets/custom_button.dart';
-import 'package:stylish_app/modules/shop/ui/widgets/custom_out_lined_with_icon.dart';
+import '../../../../core/themes/font_weight_helper.dart';
+import '../../../home/product_cubit/product_cubit.dart';
+import '../../../home/ui/widgets/build_product_list.dart';
+import '../../../home/ui/widgets/custom_page_view.dart';
+import '../widgets/custom_button.dart';
+import '../widgets/custom_out_lined_with_icon.dart';
 
 class ShopingPage extends StatefulWidget {
   const ShopingPage({super.key});

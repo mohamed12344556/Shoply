@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:stylish_app/modules/home/data/models/product_model.dart';
+import '../../data/models/product_model.dart';
 import 'build_product_item_list.dart';
 
 class BuildProductList extends StatelessWidget {
