@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'build_offers.dart';
 
 class CustomPageView extends StatefulWidget {
-  const CustomPageView({super.key});
+  const CustomPageView({
+    super.key,
+    this.children,
+  });
 
+  final Widget? children;
   @override
   State<CustomPageView> createState() => _CustomPageViewState();
 }
@@ -24,10 +28,10 @@ class _CustomPageViewState extends State<CustomPageView> {
               controller: pageController,
               onPageChanged: (value) => setState(() => index = value),
               scrollDirection: Axis.horizontal,
-              children: const [
-                BuildOffers(),
-                BuildOffers(),
-                BuildOffers(),
+              children: [
+                widget.children ?? BuildOffers(),
+                widget.children ?? BuildOffers(),
+                widget.children ?? BuildOffers(),
               ],
             ),
           ),
@@ -65,3 +69,5 @@ class CustomIndicator extends StatelessWidget {
     );
   }
 }
+
+

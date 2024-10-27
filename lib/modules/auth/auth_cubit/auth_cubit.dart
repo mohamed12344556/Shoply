@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:stylish_app/modules/auth/data/models/login_model.dart';
 import 'package:stylish_app/modules/auth/data/models/register_model.dart';
 import 'package:stylish_app/modules/auth/data/services/auth_service.dart';

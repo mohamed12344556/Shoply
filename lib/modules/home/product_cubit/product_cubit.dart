@@ -16,10 +16,6 @@ class ProductCubit extends Cubit<ProductState> {
   int selectedSizeIndex = 2;
   final List<int> sizes = [6, 7, 8, 9, 10];
 
-  void changeSelectedSizeIndex(int index) {
-    selectedSizeIndex = index;
-    emit(ChangeSelectedSizeIndex());
-  }
   final searchController = TextEditingController();
   bool isLoading = true;
 
@@ -28,6 +24,10 @@ class ProductCubit extends Cubit<ProductState> {
 
   final GetAllProductService getAllProductService = GetAllProductService();
 
+  void changeSelectedSizeIndex(int index) {
+    selectedSizeIndex = index;
+    emit(ChangeSelectedSizeIndex());
+  }
   Future<List<ProductModel>> getAllProduct() async {
     products.clear();
     filteredProducts.clear();

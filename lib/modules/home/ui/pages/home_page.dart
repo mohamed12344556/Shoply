@@ -17,18 +17,6 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   static const String routeName = 'home_page';
-
-  // final searchController = TextEditingController();
-
-  // bool isLoading = true;
-
-  // final List<ProductModel> products = [];
-
-  // List<ProductModel> filteredProducts = [];
-
-  // final GetAllProductService getAllProductService = GetAllProductService();
-
-  // @override
   @override
   Widget build(BuildContext context) {
     ProductCubit cubit = ProductCubit.get(context);

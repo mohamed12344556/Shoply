@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stylish_app/modules/auth/auth_cubit/auth_cubit.dart';
+import 'package:stylish_app/modules/home/product_cubit/product_cubit.dart';
 import 'modules/splash/Splash_Screen.dart';
 import 'modules/splash/Splash_Screen3.dart';
 import 'modules/splash/Splash_Screen4.dart';
@@ -40,9 +41,18 @@ class MyApp extends StatelessWidget {
               child: const LoginScreenD(),
             ),
         'ForgetPassword': (context) => ForgetPassword(),
-        HomePage.routeName: (context) => const HomePage(),
-        TrendingProductPage.routeName: (context) => const TrendingProductPage(),
-        ShopingPage.routeName: (context) => const ShopingPage(),
+        HomePage.routeName: (context) => BlocProvider(
+              create: (context) => ProductCubit(),
+              child: const HomePage(),
+            ),
+        TrendingProductPage.routeName: (context) => BlocProvider(
+              create: (context) => ProductCubit(),
+              child: const TrendingProductPage(),
+            ),
+        ShopingPage.routeName: (context) => BlocProvider(
+              create: (context) => ProductCubit(),
+              child:  ShopingPage(),
+            ),
         CustomBottomNavBar.routeName: (context) => const CustomBottomNavBar(),
         GetStartPage.routeName: (context) => const GetStartPage(),
       },

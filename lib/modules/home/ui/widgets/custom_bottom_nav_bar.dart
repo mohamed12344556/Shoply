@@ -35,7 +35,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
     ),
     BlocProvider(
       create: (context) => ProductCubit()..getAllProduct(),
-      child: const ShopingPage(),
+      child:   ShopingPage(),
     ),
     const Center(
       child: Text('Search Page'),
