@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stylish_app/modules/home/data/models/product_model.dart';
 
 class BuildProductPic extends StatelessWidget {
   const BuildProductPic({super.key, required this.image});

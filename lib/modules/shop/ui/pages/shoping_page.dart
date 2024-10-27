@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:stylish_app/modules/home/data/models/product_model.dart';
-import 'package:stylish_app/modules/shop/ui/widgets/build_product_pic.dart';
-import '../../../../core/themes/font_weight_helper.dart';
+import 'package:stylish_app/modules/shop/ui/widgets/action_buttons.dart';
+import 'package:stylish_app/modules/shop/ui/widgets/delivery_info.dart';
+import 'package:stylish_app/modules/shop/ui/widgets/outlined_icon_button_row.dart';
+import 'package:stylish_app/modules/shop/ui/widgets/outlined_icon_row_group%20.dart';
+import 'package:stylish_app/modules/shop/ui/widgets/price_section.dart';
+import 'package:stylish_app/modules/shop/ui/widgets/product_details_section.dart';
+import 'package:stylish_app/modules/shop/ui/widgets/product_info_section.dart';
+import 'package:stylish_app/modules/shop/ui/widgets/similar_products_header.dart';
+import 'package:stylish_app/modules/shop/ui/widgets/size_selection_section.dart';
+
 import '../../../home/product_cubit/product_cubit.dart';
 import '../../../home/ui/widgets/build_product_list.dart';
-import '../../../home/ui/widgets/custom_page_view.dart';
-import '../widgets/custom_button.dart';
-import '../widgets/custom_out_lined_with_icon.dart';
+import '../widgets/product_image_section.dart';
 
 class ShopingPage extends StatelessWidget {
   const ShopingPage({super.key});
+
   static const String routeName = 'shop_page';
+
   // final ProductModel productItem = ProductModel();
 
   @override
@@ -52,252 +59,30 @@ class ShopingPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomPageView(
-                    children: BuildProductPic(
-                      image: productItem.image!,
-                    ),
-                  ),
-                  Text(
-                    "Size: ${cubit.sizes[cubit.selectedSizeIndex]} UK",
-                    style: GoogleFonts.montserrat(
-                      fontSize: 14,
-                      fontWeight: FontWeightHelper.semiBold,
-                      color: Colors.black,
-                    ),
-                  ),
+                  ProductImageSection(productItem: productItem),
                   const SizedBox(height: 8),
-                  Row(
-                    children: List.generate(
-                      cubit.sizes.length,
-                      (index) => Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 3.0),
-                        child: ChoiceChip(
-                          showCheckmark: false,
-                          selectedColor: const Color(0xFFFA7189),
-                          side: const BorderSide(color: Color(0xFFFA7189)),
-                          label: Text(
-                            "${cubit.sizes[index]} UK",
-                            style: GoogleFonts.montserrat(
-                              fontSize: 12,
-                              fontWeight: FontWeightHelper.semiBold,
-                              color: cubit.selectedSizeIndex == index
-                                  ? Colors.white
-                                  : const Color(0xFFFA7189),
-                            ),
-                          ),
-                          selected: cubit.selectedSizeIndex == index,
-                          onSelected: (selected) {
-                            cubit.changeSelectedSizeIndex(index);
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
+                  SizeSelectionSection(cubit: cubit),
                   const SizedBox(height: 20),
-                  Text(
-                    productItem.title!,
-                    style: GoogleFonts.montserrat(
-                      fontSize: 20,
-                      fontWeight: FontWeightHelper.semiBold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Text(
-                    productItem.category!,
-                    style: GoogleFonts.montserrat(
-                      fontSize: 14,
-                      fontWeight: FontWeightHelper.regular,
-                      color: Colors.black,
-                    ),
-                  ),
+                  ProductInfoSection(productItem: productItem),
+                  const SizedBox(height: 20),
+                  PriceSection(productItem: productItem),
                   const SizedBox(height: 10),
-                  //  RateWidget(
-                  //   product: products as ProductModel,
-                  //   fontSize: 14,
-                  //   starSize: 18,
-                  //   color: Color(0xFF828282),
-                  // ),
+                  ProductDetailsSection(productItem: productItem),
                   const SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Text(
-                        "₹2,999",
-                        style: GoogleFonts.montserrat(
-                          fontSize: 14,
-                          fontWeight: FontWeightHelper.regular,
-                          color: const Color(0xFF808488),
-                          decoration: TextDecoration.lineThrough,
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Text(
-                        '${productItem.price}',
-                        style: GoogleFonts.montserrat(
-                          fontSize: 14,
-                          fontWeight: FontWeightHelper.medium,
-                          color: Colors.black,
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Text(
-                        "50% Off",
-                        style: GoogleFonts.montserrat(
-                          fontSize: 14,
-                          fontWeight: FontWeightHelper.semiBold,
-                          color: const Color(0xFFFA7189),
-                        ),
-                      ),
-                    ],
-                  ),
+                  const OutlinedIconRowGroup(),
+                  const SizedBox(height: 20),
+                  ActionButtons(productItem: productItem),
+                  const SizedBox(height: 20),
+                  const DeliveryInfo(),
                   const SizedBox(height: 10),
-                  Text(
-                    "Product Details",
-                    style: GoogleFonts.montserrat(
-                      fontSize: 14,
-                      fontWeight: FontWeightHelper.medium,
-                      color: Colors.black,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    productItem.description!,
-                    style: GoogleFonts.montserrat(
-                      fontSize: 12,
-                      fontWeight: FontWeightHelper.regular,
-                      color: Colors.black,
-                    ),
-                  ),
+                  const OutlinedIconButtonRow(),
                   const SizedBox(height: 20),
-                  const Row(
-                    children: [
-                      CustomOutLinedWithIcon(),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: CustomOutLinedWithIcon(
-                          icon: Icon(
-                            Icons.lock_outline_rounded,
-                            color: Color(0xFF828282),
-                            size: 16,
-                          ),
-                          label: 'VIP',
-                        ),
-                      ),
-                      CustomOutLinedWithIcon(
-                        icon: Icon(
-                          Icons.local_shipping_outlined,
-                          color: Color(0xFF828282),
-                          size: 16,
-                        ),
-                        label: 'Return policy',
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // Go to cart button
-                      CustomButton(
-                        onTap: () {
-                          Navigator.pushNamed(context, "shopping_bag_outlined",
-                              arguments: productItem);
-                        },
-                      ),
-                      const SizedBox(width: 35),
-                      // Buy Now button
-                      CustomButton(
-                        label: 'Buy Now',
-                        icon: Icons.shopping_bag_outlined,
-                        firstColor: const Color(0xFF71F9A9),
-                        secondColor: const Color(0xFF31B769),
-                        onTap: () {
-                          Navigator.pushNamed(context, "shopping_bag_outlined",
-                              arguments: productItem);
-                        },
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      color: const Color(0xFFFFCCD5),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 26, vertical: 11),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Delivery in",
-                          style: GoogleFonts.montserrat(
-                            fontSize: 14,
-                            fontWeight: FontWeightHelper.semiBold,
-                            color: Colors.black,
-                          ),
-                        ),
-                        Text(
-                          "1 Within Hour",
-                          style: GoogleFonts.montserrat(
-                            fontSize: 21,
-                            fontWeight: FontWeightHelper.semiBold,
-                            color: const Color(0xFF010101),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      CustomOutLinedWithIcon(
-                        size: const Size(182, 48),
-                        color: const Color(0xFFD9D9D9),
-                        label: 'View Similar',
-                        labelStyle: GoogleFonts.montserrat(
-                          fontWeight: FontWeightHelper.medium,
-                          fontSize: 14,
-                          color: Colors.black,
-                        ),
-                        icon: const Icon(
-                          Icons.remove_red_eye_outlined,
-                          color: Color(0xFF232327),
-                          size: 24,
-                        ),
-                      ),
-                      CustomOutLinedWithIcon(
-                        size: const Size(182, 48),
-                        color: const Color(0xFFD9D9D9),
-                        label: 'Add to Compare',
-                        labelStyle: GoogleFonts.montserrat(
-                          fontWeight: FontWeightHelper.medium,
-                          fontSize: 14,
-                          color: Colors.black,
-                        ),
-                        icon: const Icon(
-                          Icons.compare_arrows_outlined,
-                          color: Color(0xFF232327),
-                          size: 24,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  Text(
-                    "Similar Products",
-                    style: GoogleFonts.montserrat(
-                      fontSize: 20,
-                      fontWeight: FontWeightHelper.semiBold,
-                      color: Colors.black,
-                    ),
-                  ),
+                  const SimilarProductsHeader(),
                   const SizedBox(height: 10),
                   BuildProductList(
                     isLoading: cubit.isLoading,
                     products: cubit.products,
-                  )
+                  ),
                 ],
               ),
             ),
